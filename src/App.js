@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
+import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import AddRestaurantPage from './pages/AddRestaurantPage';
 import FavoritesPage from './pages/FavoritesPage';
@@ -11,6 +12,8 @@ function App() {
         <h1>🍽️ DishCovery KE</h1>
         <p>Find Your Next Bite, Fast</p>
       </header>
+
+      <NavBar />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
