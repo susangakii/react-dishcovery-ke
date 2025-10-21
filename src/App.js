@@ -1,12 +1,26 @@
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
+import './App.css';
+import HomePage from './pages/HomePage';
+import AddRestaurantPage from './pages/AddRestaurantPage';
+import FavoritesPage from './pages/FavoritesPage';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
+      <header className="header">
+        <h1>🍽️ DishCovery KE</h1>
+        <p>Find Your Next Bite, Fast</p>
+      </header>
+
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/add" element={<AddRestaurantPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
+
+      <footer>
+        <p className="copyright">&copy; 2025 DishCovery KE. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
