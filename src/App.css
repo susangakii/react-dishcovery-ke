@@ -56,6 +56,10 @@ body {
   white-space: nowrap;
 }
 
+.header p {
+  display: none;
+}
+
 /* navigation Bar - inside header */
 .navbar {
   display: flex;

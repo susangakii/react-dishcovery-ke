@@ -12,6 +12,7 @@ function App() {
         <div className="header-content">
           <div className="header-left">
             <h1>🍽️ DishCovery KE</h1>
+            <p>Find Your Next Bite, Fast</p>
           </div>
           <NavBar />
         </div>
