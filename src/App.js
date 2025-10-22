@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
-import AddRestaurantPage from './pages/AddRestaurantPage';
+import AddReviewPage from './pages/AddReviewPage';
 import FavoritesPage from './pages/FavoritesPage';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/add" element={<AddRestaurantPage />} />
+        <Route path="/add" element={<AddReviewPage />} />
         <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
 

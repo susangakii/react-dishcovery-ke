@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import FilterBar from '../components/FilterBar';
 import SearchForm from '../components/SearchForm';
 import RestaurantList from '../components/RestaurantList';
 
@@ -7,7 +8,7 @@ function HomePage() {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [showResults, setShowResults] = useState(false);
 
-  // GET request - Fetch restaurants on mount
+  // fetch restaurants on start (GET)
   useEffect(() => {
     fetch('http://localhost:4000/restaurants')
       .then(res => res.json())
@@ -17,7 +18,7 @@ function HomePage() {
       .catch(error => console.error('Error Fetching Restaurants:', error));
   }, []);
 
-  // Handle search
+  // handle search
   const handleSearch = (county, dishName) => {
     let results = [];
     let dataToSearch = allRestaurants;

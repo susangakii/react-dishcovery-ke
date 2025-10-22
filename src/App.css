@@ -21,8 +21,8 @@ body {
 }
 
 .header, footer {
-  width: 100vw; /* fill full viewport width */
-  margin-left: calc(50% - 50vw); /* removes centering margin */
+  width: 100vw; 
+  margin-left: calc(50% - 50vw); 
   margin-right: calc(50% - 50vw);
 }
 
@@ -50,7 +50,7 @@ body {
 }
 
 .header h1 {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin: 0;
   font-weight: 700;
   white-space: nowrap;
@@ -60,7 +60,7 @@ body {
   display: none;
 }
 
-/* navigation Bar - inside header */
+/* navigation bar - inside header */
 .navbar {
   display: flex;
   gap: 1rem;
@@ -74,7 +74,7 @@ body {
   font-weight: 500;
   border-radius: 5px;
   transition: all 0.3s;
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .nav-link:hover {

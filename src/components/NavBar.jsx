@@ -10,7 +10,7 @@ function NavBar() {
         Favorites
       </NavLink>
       <NavLink to="/add" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-        Add Restaurant
+        Add Review
       </NavLink>
     </nav>
   );
