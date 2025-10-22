@@ -9,11 +9,13 @@ function App() {
   return (
     <div className="container">
       <header className="header">
-        <h1>🍽️ DishCovery KE</h1>
-        <p>Find Your Next Bite, Fast</p>
+        <div className="header-content">
+          <div className="header-left">
+            <h1>🍽️ DishCovery KE</h1>
+          </div>
+          <NavBar />
+        </div>
       </header>
-
-      <NavBar />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
