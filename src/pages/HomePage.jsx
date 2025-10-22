@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import SearchForm from '../components/SearchForm';
+import RestaurantList from '../components/RestaurantList';
 
 function HomePage() {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -57,6 +58,10 @@ function HomePage() {
     <main className="main-content">
 
       <SearchForm onSearch={handleSearch} counties={allRestaurants.map(c => c.county)} />
+
+      {showResults && (
+        <RestaurantList restaurants={filteredRestaurants} />
+      )}
 
     </main>
   );
