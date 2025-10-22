@@ -7,6 +7,9 @@ function HomePage() {
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const [sortBy, setSortBy] = useState('');
+  const [filterCuisine, setFilterCuisine] = useState('');
+  const [filterPrice, setFilterPrice] = useState('');
 
   // fetch restaurants on start (GET)
   useEffect(() => {
@@ -55,13 +58,62 @@ function HomePage() {
     setShowResults(true);
   };
 
+  //apply filters
+  const applyFilters = () => {
+    let results = [...filteredRestaurants];
+
+    if (filterCuisine) {
+      results = results.filter(r => r.cuisine === filterCuisine);
+    }
+
+    if (filterPrice) {
+      results = results.filter(r => {
+        const priceRange = r.price_range.toLowerCase();
+        const priceNumbers = priceRange.match(/\d+/g);
+
+        if (priceNumbers && priceNumbers.length > 0) {
+          const minPrice = parseInt(priceNumbers[0]);
+
+          if (filterPrice === 'low') return minPrice < 1500;
+          if (filterPrice === 'medium') return minPrice >= 1500 && minPrice <= 3000;
+          if (filterPrice === 'high') return minPrice > 3000;
+        }
+        return true;
+      });
+    }
+
+    if (sortBy === 'rating') {
+      results.sort((a, b) => b.rating - a.rating);
+    }
+
+    return results;
+  };
+
+  const resetFilters = () => {
+    setSortBy('');
+    setFilterCuisine('');
+    setFilterPrice('');
+  };
+
   return (
     <main className="main-content">
+      {showResults && filteredRestaurants.length > 0 && (
+        <FilterBar
+          sortBy={sortBy}
+          setSortBy={setSortBy}
+          filterCuisine={filterCuisine}
+          setFilterCuisine={setFilterCuisine}
+          filterPrice={filterPrice}
+          setFilterPrice={setFilterPrice}
+          onApply={applyFilters}
+          onReset={resetFilters}
+        />
+      )}
 
       <SearchForm onSearch={handleSearch} counties={allRestaurants.map(c => c.county)} />
 
       {showResults && (
-        <RestaurantList restaurants={filteredRestaurants} />
+        <RestaurantList restaurants={applyFilters()} />
       )}
 
     </main>
