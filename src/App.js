@@ -3,7 +3,6 @@ import './App.css';
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
 import ExplorePage from './pages/ExplorePage';
-import FavoritesPage from './pages/FavoritesPage';
 import ReviewsPage from './pages/ReviewsPage';
 import AuthPage from './pages/AuthPage';
 
@@ -23,7 +22,6 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/add" element={<ReviewsPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
 
       <footer>
