@@ -2,8 +2,10 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage';
-import ReviewsPage from './pages/ReviewsPage';
+import ExplorePage from './pages/ExplorePage';
 import FavoritesPage from './pages/FavoritesPage';
+import ReviewsPage from './pages/ReviewsPage';
+import AuthPage from './pages/AuthPage';
 
 function App() {
   return (
