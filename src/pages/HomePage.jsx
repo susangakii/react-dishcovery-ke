@@ -17,7 +17,7 @@ function HomePage() {
             </div>
             <div className="hero-stats">
               <div className="stat-item">
-                <h3>500+</h3>
+                <h3>90+</h3>
                 <p>Restaurants</p>
               </div>
               <div className="stat-item">
@@ -25,7 +25,7 @@ function HomePage() {
                 <p>Counties</p>
               </div>
               <div className="stat-item">
-                <h3>1000+</h3>
+                <h3>300+</h3>
                 <p>Dishes</p>
               </div>
             </div>
