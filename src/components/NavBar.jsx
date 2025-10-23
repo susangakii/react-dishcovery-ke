@@ -6,8 +6,11 @@ function NavBar() {
       <NavLink to="/" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
         Home
       </NavLink>
-      <NavLink to="/add" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-        Add Review
+      <NavLink to="/explore" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+        Explore
+      </NavLink>
+      <NavLink to="/reviews" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+        Reviews
       </NavLink>
     </nav>
   );
