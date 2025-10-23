@@ -1,6 +1,14 @@
 function FilterBar({ sortBy, setSortBy, filterCuisine, setFilterCuisine, filterPrice, setFilterPrice, onApply, onReset }) {
   const cuisines = ["African", "Cafe", "Chinese", "Continental", "Farm-to-table", "Healthy", "International", "Italian", "Japanese", "Kenyan", "Korean", "Safari", "Seafood", "Steakhouse", "Swahili"];
 
+  const handleApply = () => {
+    onApply();
+      document.querySelector('.results-section')?.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+  };
+
   return (
     <div className="filter-bar">
       <div className="filter-content">
@@ -33,7 +41,7 @@ function FilterBar({ sortBy, setSortBy, filterCuisine, setFilterCuisine, filterP
         </div>
 
         <div className="filter-buttons">
-          <button className="apply-btn" onClick={onApply}>Apply</button>
+          <button className="apply-btn" onClick={handleApply}>Apply</button>
           <button className="reset-btn" onClick={onReset}>Clear</button>
         </div>
       </div>

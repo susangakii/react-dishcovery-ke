@@ -57,6 +57,11 @@ function ExplorePage() {
 
     setFilteredRestaurants(results);
     setShowResults(true);
+
+    document.querySelector('.results-section')?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
   };
 
   //apply filters
