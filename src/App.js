@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
-import NavBar from './components/NavBar';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ExplorePage from './pages/ExplorePage';
 import ReviewsPage from './pages/ReviewsPage';
@@ -8,25 +9,15 @@ import AuthPage from './pages/AuthPage';
 
 function App() {
   return (
-    <div className="container">
-      <header className="header">
-        <div className="header-content">
-          <div className="header-left">
-            <h1>🍽️ DishCovery KE</h1>
-            <p>Find Your Next Bite, Fast</p>
-          </div>
-          <NavBar />
-        </div>
-      </header>
-
+    <div className="app-container">
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/add" element={<ReviewsPage />} />
+        <Route path="/explore" element={<ExplorePage />} />
+        <Route path="/reviews" element={<ReviewsPage />} />
+        <Route path="/auth" element={<AuthPage />} />
       </Routes>
-
-      <footer>
-        <p className="copyright">&copy; 2025 DishCovery KE. All rights reserved.</p>
-      </footer>
+      <Footer />
     </div>
   );
 }
