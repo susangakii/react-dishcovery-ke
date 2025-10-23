@@ -76,7 +76,7 @@ function HomePage() {
             <div className="step-card">
               <div className="step-number">1</div>
               <h3>Search</h3>
-              <p>Enter your location and the dish you're craving</p>
+              <p>Enter your location (county) and the dish you're craving</p>
             </div>
             <div className="step-arrow">→</div>
             <div className="step-card">
