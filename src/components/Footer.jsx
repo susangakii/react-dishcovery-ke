@@ -3,10 +3,6 @@ function Footer() {
     <footer className="main-footer">
       <div className="footer-content">
         <div className="footer-section">
-          <h3>DishCovery KE</h3>
-          <p>Your gateway to Kenya's best culinary experiences.</p>
-        </div>
-        <div className="footer-section">
           <h4>Quick Links</h4>
           <ul>
             <li><a href="/explore">Explore Restaurants</a></li>
@@ -16,15 +12,25 @@ function Footer() {
         </div>
         <div className="footer-section">
           <h4>Contact Us</h4>
-          <p>Email: dishcoveryke@gmail.com</p>
-          <p>Phone: +254 700 000 000</p>
+          <p>
+            Email:{" "}
+            <a href="mailto:dishcoveryke@gmail.com">
+              dishcoveryke@gmail.com
+            </a>
+          </p>
+          <p>
+            Phone:{" "}
+            <a href="tel:+254700000000">
+              +254 700 000 000
+            </a>
+          </p>
         </div>
         <div className="footer-section">
           <h4>Follow Us</h4>
           <div className="social-links">
-            <span>Instagram</span>
-            <span>Facebook</span>
-            <span>X</span>
+              <img src="/images/icons8-instagram-logo-50.png" alt="Instagram" />
+              <img src="/images/icons8-facebook-logo-50.png" alt="Facebook" />
+              <img src="/images/icons8-x-logo-50.png" alt="X" />
           </div>
         </div>
       </div>
