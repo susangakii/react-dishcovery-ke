@@ -664,6 +664,7 @@ section h2 {
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   max-width: 1000px;
+  margin: 0 auto;
 }
 
 .auth-info {
@@ -671,6 +672,7 @@ section h2 {
   color: white;
   padding: 3rem;
   border-radius: 15px;
+  max-height: 200px;
 }
 
 .auth-toggle {
