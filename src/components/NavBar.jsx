@@ -10,7 +10,7 @@ function NavBar() {
         Explore
       </NavLink>
       <NavLink to="/reviews" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
-        Reviews
+        Add Review
       </NavLink>
     </nav>
   );
