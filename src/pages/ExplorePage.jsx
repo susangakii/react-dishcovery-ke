@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import FilterBar from '../components/FilterBar';
 import SearchForm from '../components/SearchForm';
 import RestaurantList from '../components/RestaurantList';
+import RecommendationList from '../components/RecommendationList';
 
 function ExplorePage() {
   const [allRestaurants, setAllRestaurants] = useState([]);
@@ -96,7 +97,12 @@ function ExplorePage() {
   };
 
   return (
-    <main className="main-content">
+    <main className="main-content explore-page">
+      <div className="page-header">
+        <h1>Explore Restaurants</h1>
+        <p>Discover the best dining experiences across Kenya</p>
+      </div>
+
       {showResults && filteredRestaurants.length > 0 && (
         <FilterBar
           sortBy={sortBy}
@@ -116,6 +122,7 @@ function ExplorePage() {
         <RestaurantList restaurants={applyFilters()} />
       )}
 
+      <RecommendationList allRestaurants={allRestaurants} />
     </main>
   );
 }
