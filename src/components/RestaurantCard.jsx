@@ -1,8 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function RestaurantCard({ restaurant }) {
   const [showDetails, setShowDetails] = useState(false);
   const [showContact, setShowContact] = useState(false);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    if (showDetails) {
+      fetch('http://localhost:4000/reviews')
+        .then(res => res.json())
+        .then(data => {
+          const restaurantReviews = data.filter(r => r.restaurantName === restaurant.name);
+          setReviews(restaurantReviews);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+  }, [showDetails, restaurant.name]);
 
   const imageUrl = restaurant.images && restaurant.images.length > 0 
     ? restaurant.images[0] 
@@ -78,6 +91,24 @@ function RestaurantCard({ restaurant }) {
                 <div className="hours">
                   {restaurant.operating_hours.map((hour, index) => (
                     <p key={index}>{hour}</p>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {reviews.length > 0 && (
+              <>
+                <h3>Customer Reviews ({reviews.length}):</h3>
+                <div className="reviews-section">
+                  {reviews.map((review) => (
+                    <div key={review.id} className="review-item">
+                      <div className="review-header-inline">
+                        <strong>{review.reviewerName}</strong>
+                        <span className="review-rating-inline">{'⭐'.repeat(review.rating)}</span>
+                      </div>
+                      <p className="review-text-small">{review.reviewText}</p>
+                      <small className="review-date-small">{review.date}</small>
+                    </div>
                   ))}
                 </div>
               </>

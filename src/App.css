@@ -658,6 +658,35 @@ section h2 {
   border-radius: 4px;
 }
 
+.review-item {
+  background: #f8f9fa;
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  border-radius: 6px;
+  border-left: 3px solid #b83100;
+}
+
+.review-header-inline {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.review-rating-inline {
+  color: #b83100;
+  font-size: 0.9rem;
+}
+
+.review-text-small {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.review-date-small {
+  color: #666;
+  font-size: 0.85rem;
+}
+
 /* auth page */
 .auth-container {
   max-width: 500px;
