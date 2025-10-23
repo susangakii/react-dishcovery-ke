@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 
 function ReviewsPage() {
   const [allRestaurants, setAllRestaurants] = useState([]);
+  const [allReviews, setAllReviews] = useState([]);
   const [selectedCounty, setSelectedCounty] = useState('');
   const [availableRestaurants, setAvailableRestaurants] = useState([]);
   const [formData, setFormData] = useState({
@@ -16,6 +17,11 @@ function ReviewsPage() {
     fetch('http://localhost:4000/restaurants')
       .then(res => res.json())
       .then(data => setAllRestaurants(data.restaurants || data))
+      .catch(error => console.error('Error:', error));
+    
+    fetch('http://localhost:4000/reviews')
+      .then(res => res.json())
+      .then(data => setAllReviews(data))
       .catch(error => console.error('Error:', error));
   }, []);
 
@@ -35,6 +41,7 @@ function ReviewsPage() {
     e.preventDefault();
     
     const newReview = {
+      id: allReviews.length + 1,
       restaurantName: formData.restaurantName,
       county: selectedCounty,
       reviewerName: formData.reviewerName,
@@ -49,8 +56,9 @@ function ReviewsPage() {
       body: JSON.stringify(newReview)
     })
       .then(res => res.json())
-      .then(() => {
-        setMessage('Review Submitted Successfully!');
+      .then((data) => {
+        setAllReviews([...allReviews, data]);
+        setMessage('Review submitted successfully!');
         setFormData({ restaurantName: '', reviewerName: '', rating: '', reviewText: '' });
         setSelectedCounty('');
         setAvailableRestaurants([]);
@@ -100,7 +108,7 @@ function ReviewsPage() {
           </div>
 
           <div className="input-group">
-            <label>Rating:</label>
+            <label>Rating:*</label>
             <select name="rating" value={formData.rating} onChange={handleChange} required>
               <option value="">Select Rating</option>
               <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
