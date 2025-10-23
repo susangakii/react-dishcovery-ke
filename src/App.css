@@ -148,8 +148,10 @@ body {
 
 .hero-buttons {
   display: flex;
+  justify-content: center;
   gap: 1rem;
   margin-bottom: 3rem;
+  margin-left: -150px;
 }
 
 .btn-primary, .btn-secondary, .btn-cta {
@@ -176,6 +178,7 @@ body {
   background-color: white;
   color: #b83100;
   border: 2px solid #b83100;
+  margin-right: 60px;
 }
 
 .btn-secondary:hover {

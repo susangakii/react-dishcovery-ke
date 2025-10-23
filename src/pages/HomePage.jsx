@@ -8,11 +8,8 @@ function HomePage() {
             <h1>Discover Kenya's Best Dish Experiences</h1>
             <p>Find your favorite dishes across Kenya's top restaurants. From all counties, explore authentic flavors and hidden gems.</p>
             <div className="hero-buttons">
-              <button className="btn-primary" onClick={() => window.location.href = '/explore'}>
+              <button className="btn-secondary" onClick={() => window.location.href = '/explore'}>
                 Start Exploring
-              </button>
-              <button className="btn-secondary" onClick={() => window.location.href = '/reviews'}>
-                Read Reviews
               </button>
             </div>
             <div className="hero-stats">
