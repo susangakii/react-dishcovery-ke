@@ -145,41 +145,11 @@ The application uses json-server to provide a RESTful API:
 | POST | `/reviews` | Add a new review (controlled form) |
 | GET | `/reviews/:id` | Fetch a specific review |
 
-### Example db.json Structure
-
-```json
-{
-  "restaurants": [
-    {
-      "county": "Nairobi",
-      "restaurants": [
-        {
-          "id": "1",
-          "name": "Jiko Restaurant",
-          "address": "Tribe Hotel, Village Market",
-          "cuisine": "African",
-          "dishes": [...],
-          "drinks": [...],
-          "price_range": "2500-4000 KES pp",
-          "rating": 4.8,
-          ...
-        }
-      ]
-    }
-  ],
-  "reviews": [
-    {
-      "id": "1",
-      "restaurantName": "Jiko Restaurant",
-      "reviewerName": "John Doe",
-      "rating": 5,
-      "reviewText": "Amazing experience!",
-      "county": "Nairobi",
-      "date": "10/22/2025"
-    }
-  ]
-}
-```
+### Sign Up/Login Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/users` | Fetch all users |
+| POST | `/users` | Add a new user |
 
 ---
 
@@ -214,22 +184,6 @@ dishcovery-ke/
 ├── package.json                     # Dependencies
 └── README.md                        # Documentation
 ```
-
----
-
-## Screenshots
-
-### Home Page - Hero Section
-*Beautiful landing page with engaging hero section and call-to-action*
-
-### Explore Page - Restaurant Search
-*Advanced search with filtering capabilities*
-
-### Reviews Page - Write Reviews
-*Submit restaurant reviews with controlled form (POST request)*
-
-### Auth Page - User Authentication
-*Sign up and login for personalized experience*
 
 ---
 

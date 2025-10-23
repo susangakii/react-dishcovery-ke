@@ -5,136 +5,111 @@ function AuthPage() {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    name: '',
-    confirmPassword: ''
+    name: ''
   });
-  const [message, setMessage] = useState('');
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+    setError('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if (!isLogin && formData.password !== formData.confirmPassword) {
-      setMessage('Passwords Do Not Match!');
-      return;
-    }
 
     if (isLogin) {
-      setMessage('Login Successful! Welcome back.');
+      // Login
+      fetch('http://localhost:4000/users')
+        .then(r => r.json())
+        .then(users => {
+          const user = users.find(u => u.email === formData.email && u.password === formData.password);
+          if (user) {
+            sessionStorage.setItem('user', JSON.stringify(user));
+            window.location.href = '/explore';
+          } else {
+            setError('Invalid Email or Password');
+          }
+        })
+        .catch(() => setError('Login Failed. Please Try Again.'));
     } else {
-      setMessage('Account Created Successfully! Welcome to DishCovery KE.');
+      // Sign Up
+      const newUser = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password
+      };
+
+      fetch('http://localhost:4000/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newUser)
+      })
+        .then(r => r.json())
+        .then(user => {
+          sessionStorage.setItem('user', JSON.stringify(user));
+          window.location.href = '/explore';
+        })
+        .catch(() => setError('Signup Failed. Please Try Again.'));
     }
-
-    setTimeout(() => {
-      setMessage('');
-      window.location.href = '/';
-    }, 1000);
-  };
-
-  const toggleMode = () => {
-    setIsLogin(!isLogin);
-    setMessage('');
-    setFormData({
-      email: '',
-      password: '',
-      name: '',
-      confirmPassword: ''
-    });
   };
 
   return (
-    <main className="main-content auth-page">
-      <div className="auth-container">
-        <div className="auth-card">
-          <h1>{isLogin ? 'Welcome Back' : 'Create Account'}</h1>
-          <p className="auth-subtitle">
-            {isLogin ? 'Sign in To Access Your Account' : 'Join Our Community'}
-          </p>
-
-          <form onSubmit={handleSubmit} className="auth-form">
+    <main className="main-content">
+      <div className="auth-simple-container">
+        <div className="auth-simple-card">
+          <h2>{isLogin ? 'Login' : 'Sign Up'}</h2>
+          {error && <div className="error-alert">{error}</div>}
+          
+          <form onSubmit={handleSubmit}>
             {!isLogin && (
               <div className="input-group">
-                <label htmlFor="name">Full Name:</label>
                 <input
                   type="text"
-                  id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Enter your full name"
-                  required={!isLogin}
+                  placeholder="Full Name"
+                  required
                 />
               </div>
             )}
-
+            
             <div className="input-group">
-              <label htmlFor="email">Email:</label>
               <input
                 type="email"
-                id="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Enter your email"
+                placeholder="Email"
                 required
               />
             </div>
-
+            
             <div className="input-group">
-              <label htmlFor="password">Password:</label>
               <input
                 type="password"
-                id="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                placeholder="Enter your password"
+                placeholder="Password"
                 required
               />
             </div>
-
-            {!isLogin && (
-              <div className="input-group">
-                <label htmlFor="confirmPassword">Confirm Password:</label>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  placeholder="Confirm your password"
-                  required={!isLogin}
-                />
-              </div>
-            )}
-
-            <div className="submit-button">
-              <button type="submit">
-                {isLogin ? 'Sign In' : 'Sign Up'}
-              </button>
-            </div>
-
-            {message && (
-              <div className={`submit-message ${message.includes('success') ? 'success' : 'error'}`}>
-                {message}
-              </div>
-            )}
+            
+            <button type="submit" className="auth-submit-btn">
+              {isLogin ? 'Login' : 'Sign Up'}
+            </button>
           </form>
 
-          <div className="auth-toggle">
-            <p>
-              {isLogin ? "Don't Have an Account? " : "Already Have an Account? "}
-              <button onClick={toggleMode} className="toggle-btn">
-                {isLogin ? 'Sign Up' : 'Sign In'}
-              </button>
-            </p>
-          </div>
+          <p className="auth-toggle-text">
+            {isLogin ? "Don't have an account? " : "Already have an account? "}
+            <span onClick={() => { setIsLogin(!isLogin); setError(''); }} className="toggle-link">
+              {isLogin ? 'Sign Up' : 'Login'}
+            </span>
+          </p>
         </div>
       </div>
     </main>

@@ -6125,6 +6125,37 @@
       ]
     }
   ],
-  "users": [],
+  "users": [
+    {
+      "id": 1,
+      "email": "user@example.com",
+      "username": "user",
+      "password": "password123"
+    },
+    {
+      "id": 2,
+      "email": "john@example.com",
+      "username": "john",
+      "password": "john123"
+    },
+    {
+      "id": 3,
+      "email": "jane@example.com",
+      "username": "jane",
+      "password": "jane123"
+    },
+    {
+      "id": 4,
+      "email": "admin@example.com",
+      "username": "admin",
+      "password": "admin123"
+    },
+    {
+      "id": 5,
+      "email": "test@example.com",
+      "username": "test",
+      "password": "test123"
+    }
+  ],
   "reviews": []
 }
