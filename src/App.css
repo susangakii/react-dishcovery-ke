@@ -365,9 +365,22 @@ section h2 {
   margin-bottom: 2rem;
 }
 
-.search-section {
-  width: 66%;
+.search-section, .add-review-section {
+  max-width: 800px;
   margin: 0 auto 2rem;
+}
+
+.selected-restaurant-info {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 3px solid #b83100;
+  margin-bottom: 1rem;
+}
+
+.selected-restaurant-info p {
+  margin: 0.3rem 0;
+  color: #333;
 }
 
 .filter-content, .filter-buttons, .restaurant-actions, .form-row {
@@ -504,6 +517,23 @@ section h2 {
   color: #666;
 }
 
+.restaurant-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.restaurant-actions button {
+  flex: 1;
+  padding: 0.65rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s;
+}
+
 .reserve-btn {
   background-color: #b83100;
   color: white;
@@ -511,6 +541,21 @@ section h2 {
 
 .reserve-btn:hover {
   background-color: #693800;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(184, 49, 0, 0.3);
+}
+
+.details-btn {
+  background-color: white;
+  color: #b83100;
+  border: 2px solid #b83100;
+}
+
+.details-btn:hover {
+  background-color: #b83100;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(184, 49, 0, 0.3);
 }
 
 /* reviews */
@@ -568,6 +613,11 @@ section h2 {
 .contact-content {
   width: 90%;
   max-width: 400px;
+}
+
+.contact-content h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
 }
 
 .close-modal, .close-contact {
