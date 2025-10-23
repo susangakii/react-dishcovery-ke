@@ -136,15 +136,6 @@ function AuthPage() {
             </p>
           </div>
         </div>
-
-        <div className="auth-info">
-          <h2>Why Join DishCovery KE?</h2>
-          <ul>
-            <li>Access location-based food searches</li>
-            <li>Write and share reviews</li>
-            <li>Get personalized recommendations</li>
-          </ul>
-        </div>
       </div>
     </main>
   );
