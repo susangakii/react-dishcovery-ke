@@ -4,7 +4,7 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-section">
           <h3>DishCovery KE</h3>
-          <p>Your gateway to Kenya's best culinary experiences</p>
+          <p>Your gateway to Kenya's best culinary experiences.</p>
         </div>
         <div className="footer-section">
           <h4>Quick Links</h4>
@@ -15,7 +15,7 @@ function Footer() {
           </ul>
         </div>
         <div className="footer-section">
-          <h4>Contact</h4>
+          <h4>Contact Us</h4>
           <p>Email: dishcoveryke@gmail.com</p>
           <p>Phone: +254 700 000 000</p>
         </div>

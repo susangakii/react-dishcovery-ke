@@ -32,7 +32,11 @@ function HomePage() {
           </div>
           <div className="hero-image">
             <div className="hero-card">
-              <span className="hero-emoji">🍛</span>
+              <img
+                src="https://assets1.canadiangrocer.com/images/v/max_width_1440/s3fs-public/2024-05/people_eat_dinner_together.jpg"
+                alt="People eating dinner together"
+                className="hero-img"
+              />
             </div>
           </div>
         </div>
@@ -41,7 +45,7 @@ function HomePage() {
       {/* about section */}
       <section className="about-section">
         <div className="about-content">
-          <h2>Your Gateway to Kenyan Cuisine</h2>
+          <h2>About</h2>
           <p>DishCovery KE connects food lovers with the best restaurants, serving their best dishes across Kenya. Whether you're craving traditional Kenyan dishes or international cuisine, we help you find exactly what you're looking for.</p>
           <div className="about-features">
             <div className="feature-card">
@@ -97,12 +101,12 @@ function HomePage() {
           <p className="section-subtitle">Explore Kenya's diverse culinary landscape</p>
           <div className="cuisine-grid">
             <div className="cuisine-card">
-              <div className="cuisine-icon">🍖</div>
+              <div className="cuisine-icon">🍛</div>
               <h3>Traditional Kenyan</h3>
               <p>Nyama Choma, Ugali, Sukuma Wiki</p>
             </div>
             <div className="cuisine-card">
-              <div className="cuisine-icon">🍕</div>
+              <div className="cuisine-icon">🍱</div>
               <h3>International</h3>
               <p>Italian, Chinese, Japanese</p>
             </div>

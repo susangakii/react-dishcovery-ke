@@ -58,10 +58,12 @@ function ExplorePage() {
     setFilteredRestaurants(results);
     setShowResults(true);
 
-    document.querySelector('.results-section')?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    setTimeout(() => {
+      document.querySelector('.results-section')?.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
+      });
+    }, 300);
   };
 
   //apply filters

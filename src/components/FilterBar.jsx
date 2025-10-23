@@ -3,10 +3,12 @@ function FilterBar({ sortBy, setSortBy, filterCuisine, setFilterCuisine, filterP
 
   const handleApply = () => {
     onApply();
+    setTimeout(() => {
       document.querySelector('.results-section')?.scrollIntoView({ 
         behavior: 'smooth', 
         block: 'start' 
       });
+    }, 100);
   };
 
   return (
