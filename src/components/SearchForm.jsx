@@ -25,8 +25,8 @@ function SearchForm({ onSearch, counties }) {
             onChange={(e) => setCounty(e.target.value)}
           >
             <option value="">All Counties</option>
-            {counties.map(c => (
-              <option key={c} value={c}>{c}</option>
+            {counties.map((c, index) => (
+              <option key={index} value={c}>{c}</option>
             ))}
           </select>
         </div>
