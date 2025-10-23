@@ -6,7 +6,17 @@ function FilterBar({ sortBy, setSortBy, filterCuisine, setFilterCuisine, filterP
     setTimeout(() => {
       document.querySelector('.results-section')?.scrollIntoView({ 
         behavior: 'smooth', 
-        block: 'start' 
+        block: 'center' 
+      });
+    }, 100);
+  };
+
+  const handleReset = () => {
+    onReset();
+    setTimeout(() => {
+      document.querySelector('.results-section')?.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center' 
       });
     }, 100);
   };
@@ -44,7 +54,7 @@ function FilterBar({ sortBy, setSortBy, filterCuisine, setFilterCuisine, filterP
 
         <div className="filter-buttons">
           <button className="apply-btn" onClick={handleApply}>Apply</button>
-          <button className="reset-btn" onClick={onReset}>Clear</button>
+          <button className="reset-btn" onClick={handleReset}>Clear</button>
         </div>
       </div>
     </div>
