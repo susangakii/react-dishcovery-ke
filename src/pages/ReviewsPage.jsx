@@ -58,11 +58,11 @@ function ReviewsPage() {
       .then(res => res.json())
       .then((data) => {
         setAllReviews([...allReviews, data]);
-        setMessage('Review submitted successfully!');
+        setMessage('Review Submitted Successfully!');
         setFormData({ restaurantName: '', reviewerName: '', rating: '', reviewText: '' });
         setSelectedCounty('');
         setAvailableRestaurants([]);
-        setTimeout(() => setMessage(''), 3000);
+        setTimeout(() => setMessage(''), 10000);
       })
       .catch(() => setMessage('Error Submitting Review'));
   };
@@ -129,7 +129,7 @@ function ReviewsPage() {
           </div>
 
           {message && (
-            <div className={`submit-message ${message.includes('success') ? 'success' : 'error'}`}>
+            <div className={`submit-message ${message.includes('Success') ? 'success' : 'error'}`}>
               {message}
             </div>
           )}

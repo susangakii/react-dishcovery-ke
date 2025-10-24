@@ -6128,31 +6128,31 @@
   "users": [
     {
       "id": 1,
-      "email": "user@example.com",
+      "email": "user@gmail.com",
       "username": "user",
-      "password": "password123"
+      "password": "user123"
     },
     {
       "id": 2,
-      "email": "john@example.com",
+      "email": "john@gmail.com",
       "username": "john",
       "password": "john123"
     },
     {
       "id": 3,
-      "email": "jane@example.com",
+      "email": "jane@gmail.com",
       "username": "jane",
       "password": "jane123"
     },
     {
       "id": 4,
-      "email": "admin@example.com",
+      "email": "admin@gmail.com",
       "username": "admin",
       "password": "admin123"
     },
     {
       "id": 5,
-      "email": "test@example.com",
+      "email": "test@gmail.com",
       "username": "test",
       "password": "test123"
     }

@@ -84,6 +84,15 @@ body {
   gap: 1rem;
 }
 
+.welcome-text {
+  color: white;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .auth-btn {
   padding: 0.5rem 1.5rem;
   background-color: white;
@@ -99,6 +108,19 @@ body {
 .auth-btn:hover {
   background-color: #f0f0f0;
   transform: translateY(-2px);
+}
+
+.welcome-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* main Content & pages */

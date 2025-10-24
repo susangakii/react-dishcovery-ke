@@ -21,36 +21,48 @@ function AuthPage() {
     e.preventDefault();
 
     if (isLogin) {
-      // Login
+      // login
       fetch('http://localhost:4000/users')
         .then(r => r.json())
         .then(users => {
           const user = users.find(u => u.email === formData.email && u.password === formData.password);
           if (user) {
-            sessionStorage.setItem('user', JSON.stringify(user));
-            window.location.href = '/explore';
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            window.location.href = '/';
           } else {
             setError('Invalid Email or Password');
           }
         })
         .catch(() => setError('Login Failed. Please Try Again.'));
     } else {
-      // Sign Up
-      const newUser = {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password
-      };
-
-      fetch('http://localhost:4000/users', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newUser)
-      })
+      // sign up - if email exists first
+      fetch('http://localhost:4000/users')
         .then(r => r.json())
-        .then(user => {
-          sessionStorage.setItem('user', JSON.stringify(user));
-          window.location.href = '/explore';
+        .then(users => {
+          const existingUser = users.find(u => u.email === formData.email);
+          if (existingUser) {
+            setError('Email Already Has an Account. Please Login.');
+            return;
+          }
+
+          // create new user
+          const newUser = {
+            name: formData.name,
+            email: formData.email,
+            password: formData.password
+          };
+
+          fetch('http://localhost:4000/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newUser)
+          })
+            .then(r => r.json())
+            .then(user => {
+              localStorage.setItem('currentUser', JSON.stringify(user));
+              window.location.href = '/';
+            })
+            .catch(() => setError('Signup Failed. Please Try Again.'));
         })
         .catch(() => setError('Signup Failed. Please Try Again.'));
     }
@@ -106,7 +118,7 @@ function AuthPage() {
 
           <p className="auth-toggle-text">
             {isLogin ? "Don't have an account? " : "Already have an account? "}
-            <span onClick={() => { setIsLogin(!isLogin); setError(''); }} className="toggle-link">
+            <span onClick={() => { setIsLogin(!isLogin); setError(''); setFormData({ email: '', password: '', name: '' }); }} className="toggle-link">
               {isLogin ? 'Sign Up' : 'Login'}
             </span>
           </p>

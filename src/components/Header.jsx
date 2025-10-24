@@ -7,21 +7,17 @@ function Header() {
 
   useEffect(() => {
     checkUser();
-    window.addEventListener('storage', checkUser);
-    return () => window.removeEventListener('storage', checkUser);
   }, []);
 
   const checkUser = () => {
-    const userData = sessionStorage.getItem('user');
+    const userData = localStorage.getItem('currentUser');
     if (userData) {
       setUser(JSON.parse(userData));
-    } else {
-      setUser(null);
     }
   };
 
   const handleSignOut = () => {
-    sessionStorage.removeItem('user');
+    localStorage.removeItem('currentUser');
     setUser(null);
     window.location.href = '/';
   };
@@ -32,12 +28,21 @@ function Header() {
         <div className="header-left">
           <h1>🍽️ DishCovery KE</h1>
         </div>
-        
+
         <NavBar />
 
         <div className="header-right">
           {user ? (
             <div className="user-section">
+              <div className="welcome-container">
+                <img
+                  src="/images/image.png"
+                  alt="profile"
+                  className="profile-icon"
+                />
+                <span className="welcome-text">{user.name}</span>
+              </div>
+
               <button onClick={handleSignOut} className="auth-btn">Sign Out</button>
             </div>
           ) : (
